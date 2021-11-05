@@ -4,4 +4,10 @@
     <string name="slogan_text">Trace and exploring your daily life events...</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="detail_text">
+        This operator is really great for button clicks. If a user presses a button too many times,
+        there is  no need to execute the action several times over. We can use the Debounce operator
+        to throttle back their clicks by introducing an allowable timespan between clicks. If the
+        timespan has not elapsed, we can inhibit any methods from being called twice.
+    </string>
 </resources>
