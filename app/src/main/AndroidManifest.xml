@@ -9,6 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NoteMe">
         <activity
+            android:name=".ui.TaskDetailActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.AddTaskActivity"
             android:exported="true" />
         <activity
