@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">NoteMe</string>
+    <string name="title_activity_note">NoteActivity</string>
+    <string name="slogan_text">Trace and exploring your daily life events...</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
