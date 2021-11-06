@@ -64,6 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/toolBar">
@@ -83,8 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
-                    android:text="22/11/2020"
-                    android:textSize="15sp" />
+                    android:text="22/11/2020" />
             </LinearLayout>
 
             <LinearLayout
@@ -123,7 +123,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="25dp"
                 android:text="Demo Note Title"
                 android:textColor="@color/colorSecondary"
                 android:textStyle="bold"
@@ -138,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="12dp"
                 android:text="Description: "
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -165,6 +165,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/descriptionTV">
@@ -184,8 +185,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
-                    android:text="22/11/2020"
-                    android:textSize="15sp" />
+                    android:text="22/11/2020" />
             </LinearLayout>
 
             <LinearLayout
@@ -193,7 +193,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="40dp"
                 android:gravity="center"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/deadLineView">
@@ -208,8 +208,8 @@
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="46dp"
-                        android:layout_height="46dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/ic_email" />
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -230,8 +230,8 @@
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="46dp"
-                        android:layout_height="46dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/ic_phone" />
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -251,8 +251,8 @@
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="46dp"
-                        android:layout_height="46dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/ic_url" />
 
                     <androidx.appcompat.widget.AppCompatTextView
