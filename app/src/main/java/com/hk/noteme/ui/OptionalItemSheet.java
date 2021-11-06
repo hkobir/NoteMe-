@@ -43,8 +43,8 @@ public class OptionalItemSheet extends BottomSheetDialogFragment {
         }
 
         //set content
-        if (data.equals("null")) {
-            itemContent.setText("N/A");
+        if (data.equals("none")) {
+            itemContent.setText("n/a");
         } else {
             itemContent.setText(data);
         }

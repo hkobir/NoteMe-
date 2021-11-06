@@ -13,15 +13,22 @@ import java.util.List;
 public class TaskRepository {
     public TaskDao taskDao;
     LiveData<List<Task>> tasks;
+    LiveData<Task> task;
 
     public TaskRepository(Application application) {
         TaskDatabase db = TaskDatabase.getDatabase(application);
         taskDao = db.taskDao();
         tasks = taskDao.getAllTask();
+
     }
 
     public LiveData<List<Task>> getAllTask() {
         return tasks;
+    }
+
+    public LiveData<Task> getSingleTask(int id) {
+        task = taskDao.getSingleTask(id);
+        return task;
     }
 
     public void insertTask(final Task task) {
@@ -41,6 +48,7 @@ public class TaskRepository {
             }
         });
     }
+
     public void deleteTask(final Task task) {
         TaskDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
@@ -49,6 +57,7 @@ public class TaskRepository {
             }
         });
     }
+
     public void deleteAllTask() {
         TaskDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override

@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 
 import com.hk.noteme.R;
 import com.hk.noteme.adapters.TaskListAdapter;
+import com.hk.noteme.adapters.UpdateCallBackListener;
 import com.hk.noteme.databinding.FragmentOpenTaskBinding;
 import com.hk.noteme.models.Task;
 import com.hk.noteme.viewmodel.TaskViewModel;
@@ -47,6 +48,7 @@ public class OpenTaskFragment extends Fragment {
         //init
         taskViewModel = new ViewModelProvider(this).get(TaskViewModel.class);
         taskList = new ArrayList<>();
+        taskAdapter = new TaskListAdapter(context);
         binding.openTaskRV.setLayoutManager(new LinearLayoutManager(context));
         return binding.getRoot();
     }
@@ -69,22 +71,22 @@ public class OpenTaskFragment extends Fragment {
             @Override
             public void onChanged(List<Task> tasks) {
 //                taskList = tasks;
-
+                taskList.clear();
                 for (Task task : tasks) {
                     if (task.getTaskStatus().equals("Open")) {
                         taskList.add(task);
                     }
                 }
-
                 binding.emptyTV.setVisibility(View.GONE);
-                Log.d("taskData", tasks.toString());
-                taskAdapter = new TaskListAdapter(taskList, context);
-                binding.openTaskRV.setAdapter(taskAdapter);
-                //empty item
                 if (taskList.size() <= 0) {
                     binding.emptyTV.setVisibility(View.VISIBLE);
                 }
+                taskAdapter.setTaskList(taskList);
+                binding.openTaskRV.setAdapter(taskAdapter);
+                //empty item
+
             }
         });
     }
+
 }

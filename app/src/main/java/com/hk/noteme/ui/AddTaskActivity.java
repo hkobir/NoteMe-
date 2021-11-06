@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,9 +37,10 @@ public class AddTaskActivity extends AppCompatActivity {
     private Calendar calendar;
     private int year, month, day;
     private TaskViewModel taskViewModel;
-    final String[] typeStatus = {"Open", "Progress", "Test", "Done"};
+    private String[] typeStatus = {"Open", "Progress", "Test", "Done"};
     private String status = "";
     private int selectposition = 0;
+    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +50,9 @@ public class AddTaskActivity extends AppCompatActivity {
         //init
         taskViewModel = new ViewModelProvider(this).get(TaskViewModel.class);
         //get update intent
-        if (getIntent() != null) {
+        if (getIntent().getStringExtra("title") != null) {
             updateRequest = true;
+            id = getIntent().getIntExtra("id", 0);
             binding.titleET.setText(getIntent().getStringExtra("title"));
             binding.detailET.setText(getIntent().getStringExtra("detail"));
             binding.deadLineTV.setText(getIntent().getStringExtra("deadline"));
@@ -65,8 +68,9 @@ public class AddTaskActivity extends AppCompatActivity {
 
         if (!updateRequest) {
             currentDate = dateFormat.format(new Date());
+            binding.deadLineTV.setText(currentDate);
         }
-        binding.deadLineTV.setText(currentDate);
+
 
         //calender initialize
         calendar = Calendar.getInstance();
@@ -127,6 +131,13 @@ public class AddTaskActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 optionalItemDialog("phone");
+            }
+        });
+
+        binding.backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
@@ -225,14 +236,15 @@ public class AddTaskActivity extends AppCompatActivity {
         );
         if (updateRequest) {
             //update task data
+            task.setId(id);
             taskViewModel.updateTask(task);
             //show dialog
         } else {
             //insert new task data
             taskViewModel.insertTask(task);
             //todo: show inserted dialog
-            showSuccessDialog();
         }
+        showSuccessDialog();
     }
 
     private void showSuccessDialog() {

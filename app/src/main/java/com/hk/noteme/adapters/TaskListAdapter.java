@@ -29,9 +29,13 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
     TaskViewModel viewModel;
     private AlertDialog deleteDialog;
 
-    public TaskListAdapter(List<Task> taskList, Context context) {
-        this.taskList = taskList;
+
+    public TaskListAdapter(Context context) {
         this.context = context;
+    }
+
+    public void setTaskList(List<Task> taskList) {
+        this.taskList = taskList;
     }
 
     @NonNull
@@ -50,6 +54,16 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, TaskDetailActivity.class);
+                intent.putExtra("id", task.getId());
+                context.startActivity(intent);
+            }
+        });
+
+        holder.editBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, AddTaskActivity.class);
+                intent.putExtra("id", task.getId());
                 intent.putExtra("title", task.getTaskName());
                 intent.putExtra("detail", task.getTaskDetail());
                 intent.putExtra("deadline", task.getDeadLine());
@@ -59,6 +73,37 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
                 intent.putExtra("phone", task.getPhone());
                 intent.putExtra("url", task.getUrl());
                 context.startActivity(intent);
+            }
+
+        });
+        holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewModel = new ViewModelProvider((FragmentActivity) context).get(TaskViewModel.class);
+
+                deleteDialog = new AlertDialog.Builder(context).create();
+                deleteDialog.setCancelable(false);
+                final View view = LayoutInflater.from(context).inflate(R.layout.delete_task_confirm_dialogue, null);
+                Button deleteBtn = view.findViewById(R.id.deleteButon);
+                Button cancelBtn = view.findViewById(R.id.cancelButon);
+                deleteBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        viewModel.deleteTask(task);
+                        notifyDataSetChanged();
+                        deleteDialog.dismiss();
+                    }
+                });
+
+                cancelBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        deleteDialog.dismiss();
+                    }
+                });
+
+                deleteDialog.setView(view);
+                deleteDialog.show();
             }
         });
     }
@@ -85,53 +130,6 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
             title.setText(task.getTaskName());
             created.setText(task.getCreateDate());
             deadLine.setText(task.getDeadLine());
-
-            editBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, AddTaskActivity.class);
-                    intent.putExtra("title", task.getTaskName());
-                    intent.putExtra("detail", task.getTaskDetail());
-                    intent.putExtra("deadline", task.getDeadLine());
-                    intent.putExtra("status", task.getTaskStatus());
-                    intent.putExtra("create_date", task.getCreateDate());
-                    intent.putExtra("email", task.getMail());
-                    intent.putExtra("phone", task.getPhone());
-                    intent.putExtra("url", task.getUrl());
-                    context.startActivity(intent);
-                }
-
-            });
-            deleteBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    viewModel = new ViewModelProvider((FragmentActivity) context).get(TaskViewModel.class);
-
-                    deleteDialog = new AlertDialog.Builder(context).create();
-                    final View view = LayoutInflater.from(context).inflate(R.layout.delete_task_confirm_dialogue, null);
-                    Button deleteBtn = view.findViewById(R.id.deleteButon);
-                    Button cancelBtn = view.findViewById(R.id.cancelButon);
-                    deleteBtn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-
-                            viewModel.deleteTask(task);
-                            notifyDataSetChanged();
-                            deleteDialog.dismiss();
-                        }
-                    });
-
-                    cancelBtn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            deleteDialog.dismiss();
-                        }
-                    });
-
-                    deleteDialog.setView(view);
-                    deleteDialog.show();
-                }
-            });
         }
     }
 }

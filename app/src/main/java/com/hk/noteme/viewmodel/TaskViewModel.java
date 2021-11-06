@@ -15,11 +15,17 @@ import java.util.List;
 public class TaskViewModel extends AndroidViewModel {
     private TaskRepository taskRepository;
     private LiveData<List<Task>> tasks;
+    private LiveData<Task> task;
 
     public TaskViewModel(@NonNull Application application) {
         super(application);
         taskRepository = new TaskRepository(application);
         tasks = taskRepository.getAllTask();
+    }
+
+    public LiveData<Task> getSingleTask(int id) {
+        task = taskRepository.getSingleTask(id);
+        return task;
     }
 
     public LiveData<List<Task>> getAllTask() {

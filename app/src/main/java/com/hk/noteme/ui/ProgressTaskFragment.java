@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 
 import com.hk.noteme.R;
 import com.hk.noteme.adapters.TaskListAdapter;
+import com.hk.noteme.adapters.UpdateCallBackListener;
 import com.hk.noteme.databinding.FragmentProgressTaskBinding;
 import com.hk.noteme.models.Task;
 import com.hk.noteme.viewmodel.TaskViewModel;
@@ -27,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ProgressTaskFragment extends Fragment {
+public class ProgressTaskFragment extends Fragment  {
     private FragmentProgressTaskBinding binding;
     private Context context;
     private TaskViewModel taskViewModel;
@@ -49,6 +50,7 @@ public class ProgressTaskFragment extends Fragment {
         //init
         taskViewModel = new ViewModelProvider(this).get(TaskViewModel.class);
         taskList = new ArrayList<>();
+        taskAdapter = new TaskListAdapter(context);
         binding.progressTaskRV.setLayoutManager(new LinearLayoutManager(context));
         return binding.getRoot();
     }
@@ -64,6 +66,7 @@ public class ProgressTaskFragment extends Fragment {
         taskViewModel.getAllTask().observe(getActivity(), new Observer<List<Task>>() {
             @Override
             public void onChanged(List<Task> tasks) {
+                taskList.clear();
                 for (Task task : tasks) {
                     if (task.getTaskStatus().equals("Progress")) {
                         taskList.add(task);
@@ -71,14 +74,15 @@ public class ProgressTaskFragment extends Fragment {
                 }
 
                 binding.emptyTV.setVisibility(View.GONE);
-                Log.d("taskData", tasks.toString());
-                taskAdapter = new TaskListAdapter(taskList, context);
-                binding.progressTaskRV.setAdapter(taskAdapter);
                 //empty item
                 if (taskList.size() <= 0) {
                     binding.emptyTV.setVisibility(View.VISIBLE);
                 }
+                Log.d("taskData", tasks.toString());
+                taskAdapter.setTaskList(taskList);
+                binding.progressTaskRV.setAdapter(taskAdapter);
             }
         });
     }
+
 }
