@@ -53,6 +53,9 @@ public class AddTaskActivity extends AppCompatActivity {
             binding.titleET.setText(getIntent().getStringExtra("title"));
             binding.detailET.setText(getIntent().getStringExtra("detail"));
             binding.deadLineTV.setText(getIntent().getStringExtra("deadline"));
+            binding.addTaskLabel.setText("Update task");
+            binding.addTaskIV.setImageResource(R.drawable.ic_update);
+
             status = getIntent().getStringExtra("status");
             currentDate = getIntent().getStringExtra("create_date");
             email = getIntent().getStringExtra("email");
@@ -96,11 +99,9 @@ public class AddTaskActivity extends AppCompatActivity {
                 if (binding.titleET.getText().toString().equals("")) {
                     binding.titleET.setError("title is required");
                     binding.titleET.requestFocus();
-                    return;
                 } else if (binding.detailET.getText().toString().equals("")) {
                     binding.detailET.setError("detail is required");
                     binding.detailET.requestFocus();
-                    return;
                 } else {
                     saveData(
                             binding.titleET.getText().toString(),
@@ -142,7 +143,7 @@ public class AddTaskActivity extends AppCompatActivity {
                     selectposition = i;
                 }
             }
-            binding.statusSpinner.setSelection(selectposition);//set spinner position thats request for update
+            binding.statusSpinner.setSelection(selectposition);//set spinner position that request for update
 
         } else {
             status = typeStatus[0];
@@ -230,6 +231,25 @@ public class AddTaskActivity extends AppCompatActivity {
             //insert new task data
             taskViewModel.insertTask(task);
             //todo: show inserted dialog
+            showSuccessDialog();
         }
     }
+
+    private void showSuccessDialog() {
+        AlertDialog successDialog = new AlertDialog.Builder(AddTaskActivity.this).create();
+        successDialog.setCancelable(false);
+        final View view = LayoutInflater.from(AddTaskActivity.this).inflate(R.layout.success_dialog, null);
+        AppCompatButton okBtn = view.findViewById(R.id.okBtn);
+        okBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                successDialog.dismiss();
+                finish();
+            }
+        });
+        successDialog.setView(view);
+        successDialog.show();
+    }
+
+
 }

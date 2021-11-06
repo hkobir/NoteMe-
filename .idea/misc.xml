@@ -10,6 +10,7 @@
         <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/drawable/ic_add.xml" value="0.14879725085910653" />
         <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/drawable/ic_arrow_back.xml" value="0.14879725085910653" />
         <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/drawable/ic_baseline_add.xml" value="0.14879725085910653" />
+        <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/drawable/ic_baseline_delete_outline_24.xml" value="0.14879725085910653" />
         <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/drawable/ic_delete.xml" value="0.14879725085910653" />
         <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/drawable/ic_update.xml" value="0.14879725085910653" />
         <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/drawable/icon_back.xml" value="0.14879725085910653" />
@@ -22,11 +23,14 @@
         <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/layout/activity_splash.xml" value="0.13353825136612021" />
         <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/layout/activity_task_detail.xml" value="0.15" />
         <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/layout/add_optional_item_dialog.xml" value="0.13958333333333334" />
+        <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/layout/delete_task_confirm_dialogue.xml" value="0.13958333333333334" />
         <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/layout/fragment_done_task.xml" value="0.13353825136612021" />
         <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/layout/fragment_open_task.xml" value="0.16" />
         <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/layout/fragment_progress_task.xml" value="0.13353825136612021" />
         <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/layout/fragment_test_task.xml" value="0.13353825136612021" />
         <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/layout/item_task_layout.xml" value="0.15" />
+        <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/layout/option_item_sheet.xml" value="0.13958333333333334" />
+        <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/layout/success_dialog.xml" value="0.13958333333333334" />
         <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="..\:/Android Development/Projects/NoteMe/app/src/main/res/menu/navigation.xml" value="0.13958333333333334" />
       </map>

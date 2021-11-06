@@ -23,6 +23,14 @@ public class Task {
         this.phone = phone;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getTaskName() {
         return taskName;
     }
@@ -85,5 +93,20 @@ public class Task {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", taskName='" + taskName + '\'' +
+                ", taskDetail='" + taskDetail + '\'' +
+                ", taskStatus='" + taskStatus + '\'' +
+                ", createDate='" + createDate + '\'' +
+                ", deadLine='" + deadLine + '\'' +
+                ", url='" + url + '\'' +
+                ", mail='" + mail + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
     }
 }

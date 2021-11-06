@@ -8,6 +8,7 @@
         android:layout_height="match_parent"
         android:background="@color/layout_background"
         tools:context=".ui.AddTaskActivity">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolBar"
             android:layout_width="match_parent"
@@ -47,7 +48,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
-                    app:srcCompat="@drawable/ic_update" />
+                    app:srcCompat="@drawable/ic_baseline_add" />
             </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>
 
