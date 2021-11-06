@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.fragment.app.FragmentActivity;
@@ -85,7 +86,7 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
                 deleteDialog.setCancelable(false);
                 final View view = LayoutInflater.from(context).inflate(R.layout.delete_task_confirm_dialogue, null);
                 Button deleteBtn = view.findViewById(R.id.deleteButon);
-                Button cancelBtn = view.findViewById(R.id.cancelButon);
+                AppCompatButton cancelBtn = view.findViewById(R.id.cancelButon);
                 deleteBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

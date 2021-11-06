@@ -1,6 +1,7 @@
 package com.hk.noteme.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
@@ -110,7 +111,7 @@ public class TaskDetailActivity extends AppCompatActivity {
                 deleteDialog.setCancelable(false);
                 final View view = LayoutInflater.from(TaskDetailActivity.this).inflate(R.layout.delete_task_confirm_dialogue, null);
                 Button deleteBtn = view.findViewById(R.id.deleteButon);
-                Button cancelBtn = view.findViewById(R.id.cancelButon);
+                AppCompatButton cancelBtn = view.findViewById(R.id.cancelButon);
                 deleteBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
