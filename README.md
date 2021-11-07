@@ -1,7 +1,9 @@
 # NoteMe
-## Tools: Android, MVVM, ROOM
+Tools: Android, MVVM, ROOM
+
+
 #
-Daily working task note timeliline , tracing and manage a note more effective way.
+Daily working task timeliline , tracing and manage a note more effective way.
 
 ## Features
 1) add task note based on status
