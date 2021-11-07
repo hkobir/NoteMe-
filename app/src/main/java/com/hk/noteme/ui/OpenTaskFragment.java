@@ -61,7 +61,9 @@ public class OpenTaskFragment extends Fragment {
         binding.addTaskFB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(context, AddTaskActivity.class));
+                Intent intent = new Intent(context, AddTaskActivity.class);
+                intent.putExtra("status_position", 0); //request to set given status
+                startActivity(intent);
             }
         });
     }

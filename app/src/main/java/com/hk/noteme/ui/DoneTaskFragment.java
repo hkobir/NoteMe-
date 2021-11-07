@@ -3,6 +3,7 @@ package com.hk.noteme.ui;
 import static androidx.databinding.DataBindingUtil.inflate;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -53,6 +54,15 @@ public class DoneTaskFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         populateData();
+
+        binding.addTaskFB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, AddTaskActivity.class);
+                intent.putExtra("status_position", 3);
+                startActivity(intent);
+            }
+        });
     }
 
     public void populateData() {

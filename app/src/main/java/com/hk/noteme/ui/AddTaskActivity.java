@@ -96,6 +96,7 @@ public class AddTaskActivity extends AppCompatActivity {
             }
         });
 
+        //set status spinner
         setStatus();
         binding.submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,7 +158,8 @@ public class AddTaskActivity extends AppCompatActivity {
             binding.statusSpinner.setSelection(selectposition);//set spinner position that request for update
 
         } else {
-            status = typeStatus[0];
+            binding.statusSpinner.setSelection(getIntent().getIntExtra("status_position", 0));
+            status = typeStatus[getIntent().getIntExtra("status_position", 0)];
         }
 
         binding.statusSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
