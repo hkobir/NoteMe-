@@ -70,7 +70,7 @@
         <EditText
             android:id="@+id/detailET"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="125dp"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/edittext_modified_states"
@@ -238,7 +238,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="40dp"
             android:background="@drawable/button_back"
             android:text="Submit"
             android:textAllCaps="false"
