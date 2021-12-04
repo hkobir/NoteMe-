@@ -13,14 +13,12 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.hk.noteme.R;
 import com.hk.noteme.adapters.TaskListAdapter;
-import com.hk.noteme.adapters.UpdateCallBackListener;
 import com.hk.noteme.databinding.FragmentOpenTaskBinding;
 import com.hk.noteme.models.Task;
 import com.hk.noteme.viewmodel.TaskViewModel;

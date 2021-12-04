@@ -20,7 +20,6 @@ import android.view.ViewGroup;
 
 import com.hk.noteme.R;
 import com.hk.noteme.adapters.TaskListAdapter;
-import com.hk.noteme.adapters.UpdateCallBackListener;
 import com.hk.noteme.databinding.FragmentTestTaskBinding;
 import com.hk.noteme.models.Task;
 import com.hk.noteme.viewmodel.TaskViewModel;
